@@ -33,7 +33,8 @@ gulp.task('sass', function() {
 gulp.task('js-vendor', function() {
     return gulp.src([
             './node_modules/jquery/dist/jquery.js',
-            './node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js'
+            './node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js',
+            './node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js'
         ])
         .pipe(concat('vendor.min.js'))
         .pipe(uglify())
