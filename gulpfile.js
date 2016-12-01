@@ -57,6 +57,13 @@ gulp.task('images', function() {
         .pipe(gulp.dest(dirs.dist + '/img/'));
 });
 
+gulp.task('fonts', function() {
+    return gulp.src([
+            './node_modules/bootstrap-sass/assets/fonts/**/*'
+        ])
+        .pipe(gulp.dest(dirs.dist + '/fonts/'));
+});
+
 gulp.task('other', function() {
     return gulp.src(dirs.src + '/*.*')
         .pipe(gulp.dest(dirs.dist));
@@ -79,7 +86,7 @@ gulp.task('watch', ['build'], function() {
 });
 
 gulp.task('build', function(callback) {
-    runSequence('clean', ['sass', 'js', 'images', 'other'], callback);
+    runSequence('clean', ['sass', 'js', 'images', 'fonts', 'other'], callback);
 });
 gulp.task('archive', function(callback) {
     runSequence('clean', 'build', 'create-archive', callback)
