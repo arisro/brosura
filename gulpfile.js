@@ -9,9 +9,10 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    zip = require('gulp-zip'),
     runSequence = require('run-sequence'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    tar = require('gulp-tar'),
+    gzip = require('gulp-gzip');
 
 var sassOptions = {
     errLogToConsole: true
@@ -70,8 +71,9 @@ gulp.task('other', function() {
 });
 
 gulp.task('create-archive', function() {
-    return gulp.src(dirs.dist)
-        .pipe(zip('archive.zip'))
+    return gulp.src(dirs.dist + '/*')
+        .pipe(tar('archive.tar'))
+	.pipe(gzip())
         .pipe(gulp.dest(dirs.dist));
 });
 
