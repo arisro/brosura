@@ -1,4 +1,4 @@
-// CI TEST
+// CI TEST 1
 var gulp = require('gulp'),
     del = require('del'),
     pkg = require('./package.json'),
