@@ -71,7 +71,7 @@ gulp.task('other', function() {
 });
 
 gulp.task('create-archive', function() {
-    return gulp.src(dirs.dist + '/*')
+    return gulp.src(dirs.dist + '/**/*')
         .pipe(tar('archive.tar'))
 	.pipe(gzip())
         .pipe(gulp.dest(dirs.dist));
